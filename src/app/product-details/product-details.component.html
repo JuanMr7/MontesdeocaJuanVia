@@ -5,9 +5,19 @@
   <img [src]="data.image" alt="Imagen del producto" width="100" height="100" />
   <p>Precio: {{ data.price | currency }}</p>
   <p>Categoría: {{ data.category }}</p>
-  <p>Rate: {{ data.rating.rate }}</p>
-  <p>Count: {{ data.rating.count }}</p>
-  <button mat-raised-button (click)="addToCart(data)">
+
+  <!-- Menú desplegable para seleccionar la cantidad -->
+  <mat-form-field>
+    <mat-label>Cantidad</mat-label>
+    <mat-select [(ngModel)]="selectedQuantity">
+      <mat-option *ngFor="let quantity of quantities" [value]="quantity">
+        {{ quantity }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Botón para agregar al carrito -->
+  <button mat-raised-button (click)="addToCart(data, selectedQuantity)">
     Agregar al Carrito
   </button>
 </div>

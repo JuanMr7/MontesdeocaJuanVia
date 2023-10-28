@@ -29,6 +29,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
 
 
 
@@ -41,6 +42,7 @@ import { CartComponent } from './cart/cart.component';
     ProductsComponent,
     ProductDetailsComponent,
     CartComponent,
+    InvoiceDetailsComponent,
   ],
   imports: [
     BrowserModule,

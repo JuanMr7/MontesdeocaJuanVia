@@ -9,6 +9,9 @@ import { CartService } from 'src/app/Services/cart.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
+  quantities: number[] = [1, 2, 3, 4, 5]; // Define las cantidades disponibles
+  selectedQuantity: number = 1; // Inicializa la cantidad seleccionada en 1
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Product,
     private dialogRef: MatDialogRef<ProductDetailsComponent>,
@@ -16,8 +19,11 @@ export class ProductDetailsComponent {
   ) { }
 
   // Función para agregar el producto al carrito
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
+  addToCart(product: Product, quantity: number) {
+    const productWithQuantity = { ...product, quantity: this.selectedQuantity };
+    // Agrega el producto con la cantidad al carrito
+    this.cartService.addToCart(productWithQuantity);
+    this.dialogRef.close();
   }
 
   // Cierra la ventana modal cuando se hace clic en el fondo oscurecido
