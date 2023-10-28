@@ -27,6 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 //Cuadriculas
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+
 
 
 
@@ -36,6 +39,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppComponent,
     LoginComponent,
     ProductsComponent,
+    ProductDetailsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,8 +57,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatPaginatorModule,
     MatSnackBarModule,
     MatIconModule,
-    MatDialogModule,
-    MatGridListModule
+    MatGridListModule, 
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

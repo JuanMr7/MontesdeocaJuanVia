@@ -1,8 +1,23 @@
-<div style="width: 80%; margin: 40px auto">
+<div
+  style="
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  "
+>
   <h1>Productos</h1>
+  <!-- Botón para ir al Carrito -->
+  <button mat-raised-button color="primary" [routerLink]="['/carrito']">
+    Ir al Carrito
+  </button>
+</div>
+
+<div>
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <br>
+    <br />
     <input
       matInput
       (keyup)="applyFilter($event)"
@@ -24,12 +39,6 @@
         <td mat-cell *matCellDef="let element">
           {{ element.price | currency }}
         </td>
-      </ng-container>
-
-      <!-- Columna 'Descripción' -->
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Descripción</th>
-        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
       </ng-container>
 
       <!-- Columna 'Categoría' -->
@@ -65,6 +74,20 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Columna 'Acciones' (Botón "Ver detalles") -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef style="width: 120px">Acciones</th>
+        <td mat-cell *matCellDef="let product">
+          <button
+            mat-button
+            (click)="openProductDetails(product)"
+            mat-raised-button
+          >
+            Ver detalles
+          </button>
+        </td>
+      </ng-container>
     </table>
 
     <mat-paginator

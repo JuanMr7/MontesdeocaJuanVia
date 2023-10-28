@@ -9,12 +9,12 @@ import { environment } from '../../environments/environment';
 })
 export class ProductosService {
 
-  private endpoint:string = environment.endPoint;
-  private apiUrl:string = this.endpoint + "products/";
+  private endpoint: string = environment.endPoint;
+  private apiUrl: string = this.endpoint + "products/";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getProductos():Observable<Product[]> {
+  getProductos(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
 }

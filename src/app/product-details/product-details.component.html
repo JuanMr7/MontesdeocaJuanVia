@@ -1,0 +1,13 @@
+<div class="container">
+  <!-- Contenido de la ventana modal -->
+  <h1>{{ data.title }}</h1>
+  <p>{{ data.description }}</p>
+  <img [src]="data.image" alt="Imagen del producto" width="100" height="100" />
+  <p>Precio: {{ data.price | currency }}</p>
+  <p>Categoría: {{ data.category }}</p>
+  <p>Rate: {{ data.rating.rate }}</p>
+  <p>Count: {{ data.rating.count }}</p>
+  <button mat-raised-button (click)="addToCart(data)">
+    Agregar al Carrito
+  </button>
+</div>
